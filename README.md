@@ -2,7 +2,7 @@
 
 GitHub Actions 实现 `酷狗概念VIP` 自动签到
 每天领取总计 `两天酷狗概念VIP`
-==555==
+===555===
 > [!warning]
 > 注意事项
 >
@@ -36,7 +36,7 @@ GitHub Actions 实现 `酷狗概念VIP` 自动签到
 
    - **创建令牌**  
      复制下方官网链接，在浏览器中打开
-     ```javascript
+     ```
      https://github.com/settings/tokens/new
      ```
    - **登录 GitHub 官网**  
