@@ -1,0 +1,54 @@
+name: QRcodeLogin
+on:
+  workflow_dispatch:
+
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v3
+      - name: 创建node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+          cache-dependency-path: ./api/package-lock.json
+      - name: 🔧 安装GitHub CLI，并使用PAT登录
+        run: |
+          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+          sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+          sudo apt update
+          sudo apt install gh -y
+          gh --version
+          echo "${{ secrets.PAT }}" | gh auth login --with-token
+          gh auth status
+      - name: Cache node_modules in api directory
+        id: cache-npm
+        uses: actions/cache@v3
+        with:
+          path: ./api/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('./api/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: 安装依赖
+        run: npm run install
+        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+      - name: 二维码登录
+        id: login
+        run: npm run qrcode
+        env:
+          PAT: ${{ secrets.PAT }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+      - name: push md
+        if: always()
+        run: |
+          git config --local user.name "github-actions"
+          git config --local user.email "github-actions@github.com"
+          sed -i "s/<sub>状态:.*<\\/sub>/<sub>状态: 已过期<\\/sub>/" README.md
+          git add README.md
+          git commit -m "更新状态" || echo "无更改"
+          git push --quiet --force-with-lease
