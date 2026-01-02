@@ -3,10 +3,9 @@
 GitHub Actions 实现 `酷狗概念VIP` 自动签到
 每天领取总计 `两天酷狗概念VIP`
 
-:smile: :rocket: :star: :octocat:
-这是一个带脚注的句子[1](@ref)
-
-[1](@ref): 这是脚注内容
+---
+***
+___
 
 > [!warning]
 > 注意事项
