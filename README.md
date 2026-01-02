@@ -2,10 +2,7 @@
 
 GitHub Actions 实现 `酷狗概念VIP` 自动签到
 每天领取总计 `两天酷狗概念VIP`
-
----
-***
-___
+console.log("Hello, GitHub!");
 
 > [!warning]
 > 注意事项
