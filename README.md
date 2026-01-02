@@ -52,6 +52,7 @@ GitHub Actions 实现 `酷狗概念VIP` 自动签到
    运行 Actions `QRcodeLogin` 并等待下面的二维码刷新，扫码登录即可自动配置
 <div align="center">
   <img src="./src/c146ede78cfb922947f95c74c1680ce21001.png" alt="登录二维码" width="200"/>
+  <br>
   <sub>请使用酷狗概念版扫码</sub>
   <br>
   <sub>状态: 已过期</sub>
