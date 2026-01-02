@@ -79,8 +79,8 @@ async function qrcode() {
                         execSync(`gh secret set USERID -b"${res.data.userid}" --repo ${process.env.GITHUB_REPOSITORY}`);
                         console.log("secret <TOKEN> <USERID> 更改成功")
                         const result = await getBeijingDateTime();
-                        execSync(`sed -i 's/|登录|.*|/|登录|${result.currentBeijing}|/' README.md`);
-                        execSync(`sed -i 's/|预过期|.*|/|预过期|${result.twoMonthsLater}|/' README.md`);
+                        execSync(`sed -i 's/|\\*\\*登录\\*\\*|.*|/|\\*\\*登录\\*\\*|\\*\\*${result.currentBeijing}\\*\\*|/' README.md`);
+                        execSync(`sed -i 's/|\\*\\*预过期\\*\\*|.*|/|\\*\\*预过期\\*\\*|\\*\\*${result.twoMonthsLater}\\*\\*|/' README.md`);
                     } catch (error) {
                         console.log("token:")
                         console.log(res.data.token)
