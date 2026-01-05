@@ -4,7 +4,7 @@ GitHub Actions 实现 `酷狗概念VIP` 自动签到
 每天领取总计 `两天酷狗概念VIP`
 
 登录每2个月会过期一次，过期后需要重新登录才可继续签到
-<table align="center">
+<table align="center" width="200">
   <tr>
     <th>登录</th>
     <th id="dl">2026-01-04</th>
