@@ -1,8 +1,6 @@
 # 酷狗签到
 <details>
 <summary></summary>
-</details>
-
 <table align="center">
   <tr>
     <th>登录</th>
@@ -13,6 +11,8 @@
     <th id="gq">2026-03-05</th>
   </tr>
 </table>
+</details>
+
 <div align="center">
   <img src="./src/0ff02f9114f7588108a1dec95ec034621001.png" alt="登录二维码" width="200"/>
   <br>
