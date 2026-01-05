@@ -1,5 +1,5 @@
 # 酷狗签到
-<details align="center">
+<details>
 <summary></summary>
 <table align="center">
   <tr>
