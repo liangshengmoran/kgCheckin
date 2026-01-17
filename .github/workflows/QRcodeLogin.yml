@@ -3,14 +3,14 @@ on:
   workflow_dispatch:
 
 env:
-  PAT: ${{ secrets.PATY }}
+  PAT: ${{ secrets.PAT }}
 
 jobs:
   run:
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
-      - name: 验证 PAT 配置
+      - name: Verify PAT
         if: env.PAT == ''
         run: |
           echo "❌ 错误: PAT 密钥未配置"
