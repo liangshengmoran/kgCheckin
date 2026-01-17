@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
 env:
-  PAT: ${{ secrets.PAT }}
+  PAT: ${{ secrets.PATY }}
 
 jobs:
   run:
